@@ -13,9 +13,9 @@ RoboCat::RoboCat() :
 	mThrustDir(0.f),
 	mPlayerId(0),
 	mIsShooting(false),
-	mHealth(10)
+	mHealth(5)
 {
-	SetCollisionRadius(60.f);
+	SetCollisionRadius(30.f);
 }
 
 void RoboCat::ProcessInput(float inDeltaTime, const InputState& inInputState)

@@ -75,7 +75,7 @@ namespace
 void Server::SetupWorld()
 {
 	//spawn some random mice
-	CreateRandomMice(10);
+	CreateRandomMice(30);
 
 	//Attempt to add background in -> Lee
 	GameObjectRegistry::sInstance->CreateGameObject('CITY');
