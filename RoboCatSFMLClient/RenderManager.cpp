@@ -69,6 +69,8 @@ void RenderManager::Render()
 	//This is where background colour changes -> Try to get background image here! - Lee
 	WindowManager::sInstance->clear(sf::Color(00, 49, 237, 255));
 
+	GameObjectRegistry::sInstance->CreateGameObject('CITY');
+	
 	//mSpriteComponent.reset(new SpriteComponent(this));
 	//mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("city"));
 
