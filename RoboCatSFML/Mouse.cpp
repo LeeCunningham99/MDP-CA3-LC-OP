@@ -2,7 +2,7 @@
 
 Mouse::Mouse()
 {
-	SetScale(GetScale() * 0.5f);
+	SetScale(GetScale() * 0.04f);
 	SetCollisionRadius(20.f);
 }
 

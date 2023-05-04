@@ -95,7 +95,7 @@ void NetworkManagerClient::HandleWelcomePacket(InputMemoryBitStream& inInputStre
 		inInputStream.Read(playerId);
 		mPlayerId = playerId;
 		mState = NCS_Welcomed;
-		LOG("'%s' was welcomed on client as player %d", mName.c_str(), mPlayerId);
+		LOG("'%s' was hired to Sweeptasia Ltd %d", mName.c_str(), mPlayerId);
 	}
 }
 

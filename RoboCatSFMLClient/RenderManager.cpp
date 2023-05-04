@@ -66,7 +66,12 @@ void RenderManager::Render()
 	//
 	// Clear the back buffer
 	//
-	WindowManager::sInstance->clear(sf::Color(100, 149, 237, 255));
+	//This is where background colour changes -> Try to get background image here! - Lee
+	WindowManager::sInstance->clear(sf::Color(00, 49, 237, 255));
+
+	//mSpriteComponent.reset(new SpriteComponent(this));
+	//mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("city"));
+
 
 	RenderManager::sInstance->RenderComponents();
 

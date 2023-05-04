@@ -19,6 +19,7 @@ Server::Server()
 	GameObjectRegistry::sInstance->RegisterCreationFunction('RCAT', RoboCatServer::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('MOUS', MouseServer::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('YARN', YarnServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('CITY', YarnServer::StaticCreate);
 
 	InitNetworkManager();
 
@@ -67,7 +68,7 @@ namespace
 		}
 	}
 
-
+	
 }
 
 
@@ -75,6 +76,9 @@ void Server::SetupWorld()
 {
 	//spawn some random mice
 	CreateRandomMice(10);
+
+	//Attempt to add background in -> Lee
+	GameObjectRegistry::sInstance->CreateGameObject('CITY');
 
 	//spawn more random mice!
 	//CreateRandomMice(10);
