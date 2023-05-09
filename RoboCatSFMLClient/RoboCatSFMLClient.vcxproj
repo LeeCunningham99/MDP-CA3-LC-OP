@@ -19,10 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.hpp" />
+    <ClInclude Include="Button.hpp" />
     <ClInclude Include="Client.hpp" />
+    <ClInclude Include="Component.hpp" />
+    <ClInclude Include="Container.hpp" />
     <ClInclude Include="FontManager.hpp" />
     <ClInclude Include="HUD.hpp" />
     <ClInclude Include="InputManager.hpp" />
+    <ClInclude Include="Label.hpp" />
     <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="MouseClient.hpp" />

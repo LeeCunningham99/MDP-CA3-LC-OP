@@ -2,6 +2,7 @@
 
 class LobbyState final : public State
 {
+	/*
 	auto HandleTutorialPress() const
 	{
 		return [this]
@@ -9,6 +10,7 @@ class LobbyState final : public State
 			RequestStackPush(StateID::kTutorial);
 		};
 	}
+	*/
 
 	auto HandleTeamButtonPressed(int id)
 	{

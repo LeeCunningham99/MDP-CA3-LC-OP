@@ -5,6 +5,11 @@
 #include "Windows.h"
 #include "WinSock2.h"
 #include "Ws2tcpip.h"
+#include <iostream>
+#include <functional>
+#include "fstream"
+#include "iostream"
+#include "sstream"
 typedef int socklen_t;
 //typedef char* receiveBufer_t;
 #else

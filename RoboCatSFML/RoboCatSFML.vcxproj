@@ -152,8 +152,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AckRange.hpp" />
+    <ClInclude Include="ButtonType.hpp" />
     <ClInclude Include="ByteSwap.hpp" />
     <ClInclude Include="DeliveryNotificationManager.hpp" />
+    <ClInclude Include="DrawableComponent.hpp" />
     <ClInclude Include="Engine.hpp" />
     <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="GameObjectRegistry.hpp" />
@@ -166,6 +168,7 @@
     <ClInclude Include="Move.hpp" />
     <ClInclude Include="MoveList.hpp" />
     <ClInclude Include="NetworkManager.hpp" />
+    <ClInclude Include="PlayerAction.hpp" />
     <ClInclude Include="ReplicationCommand.hpp" />
     <ClInclude Include="RoboCat.hpp" />
     <ClInclude Include="RoboCatPCH.hpp" />
@@ -175,11 +178,14 @@
     <ClInclude Include="SocketAddress.hpp" />
     <ClInclude Include="SocketAddressFactory.hpp" />
     <ClInclude Include="SocketUtil.hpp" />
+    <ClInclude Include="SpriteComponent.hpp" />
     <ClInclude Include="StringUtils.hpp" />
     <ClInclude Include="TCPSocket.hpp" />
+    <ClInclude Include="TextComponent.hpp" />
     <ClInclude Include="Timing.hpp" />
     <ClInclude Include="TransmissionData.hpp" />
     <ClInclude Include="UDPSocket.hpp" />
+    <ClInclude Include="Utility.hpp" />
     <ClInclude Include="WeightedTimedMovingAverage.hpp" />
     <ClInclude Include="World.hpp" />
     <ClInclude Include="Yarn.hpp" />
