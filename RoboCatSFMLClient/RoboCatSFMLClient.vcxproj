@@ -34,9 +34,10 @@
     <ClInclude Include="RoboCatClientPCH.hpp" />
     <ClInclude Include="SettingsState.hpp" />
     <ClInclude Include="SpriteComponent.hpp" />
+    <ClInclude Include="StackManager.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateID.hpp" />
-    <ClInclude Include="StateStck.hpp" />
+    <ClInclude Include="StateStack.hpp" />
     <ClInclude Include="TextureManager.hpp" />
     <ClInclude Include="TitleState.hpp" />
     <ClInclude Include="WindowManager.hpp" />
