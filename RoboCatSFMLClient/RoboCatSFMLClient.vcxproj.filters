@@ -72,6 +72,15 @@
     <ClInclude Include="LobbyState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StateID.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateStck.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
