@@ -16,9 +16,16 @@
 
 #include "HUD.hpp"
 
-
 #include "ReplicationManagerClient.hpp"
 #include "NetworkManagerClient.hpp"
 #include "Client.hpp"
 
-
+#include "SettingsState.hpp"
+#include "MenuState.hpp"
+#include "LobbyState.hpp"
+//#include "Client.hpp"
+//#include "Client.hpp"
+//#include "Client.hpp"
+//#include "Client.hpp"
+//#include "Client.hpp"
+//#include "Client.hpp"
