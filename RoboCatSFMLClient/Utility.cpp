@@ -2,6 +2,7 @@
 
 namespace
 {
+	/*
 	std::default_random_engine CreateRandomEngine()
 	{
 		const auto seed = static_cast<unsigned long>(std::time(nullptr));
@@ -9,6 +10,7 @@ namespace
 	}
 
 	auto random_engine = CreateRandomEngine();
+	*/
 }
 
 void Utility::CreateButton(std::shared_ptr<GUI::Button>& play_button, const int x,
@@ -33,8 +35,10 @@ void Utility::CreateButton(std::shared_ptr<GUI::Button>& play_button, const int 
 
 int Utility::RandomInt(const int exclusive_max)
 {
+	/*
 	const std::uniform_int_distribution<> dist(0, exclusive_max - 1);
 	return dist(random_engine);
+	*/
 }
 
 void Utility::CentreOrigin(sf::Sprite& sprite)

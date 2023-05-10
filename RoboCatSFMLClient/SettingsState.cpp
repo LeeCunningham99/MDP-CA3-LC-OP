@@ -10,7 +10,7 @@ auto SettingsState::HandleBackCallback() const
 
 SettingsState::SettingsState() : State()
 {
-	m_background_sprite.setTexture(*TextureManager::sInstance->GetTexture("background"));
+	m_background_sprite.setTexture(*TextureManager::sInstance->GetTexture("city"));
 
 	std::shared_ptr<GUI::Label> label;
 	Utility::CreateLabel(label, 80, 230, "Player", 25, false);
