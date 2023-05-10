@@ -19,6 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\RoboCatSFML\ButtonType.hpp" />
+    <ClInclude Include="..\RoboCatSFML\DrawableComponent.hpp" />
+    <ClInclude Include="..\RoboCatSFML\PlayerAction.hpp" />
+    <ClInclude Include="..\RoboCatSFML\SpriteComponent.hpp" />
+    <ClInclude Include="..\RoboCatSFML\TextComponent.hpp" />
+    <ClInclude Include="..\RoboCatSFML\Utility.hpp" />
     <ClInclude Include="AudioManager.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Client.hpp" />
@@ -38,7 +44,6 @@
     <ClInclude Include="RoboCatClient.hpp" />
     <ClInclude Include="RoboCatClientPCH.hpp" />
     <ClInclude Include="SettingsState.hpp" />
-    <ClInclude Include="SpriteComponent.hpp" />
     <ClInclude Include="StackManager.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateID.hpp" />
@@ -49,11 +54,17 @@
     <ClInclude Include="YarnClient.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientMain.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Container.cpp" />
+    <ClCompile Include="DrawableComponent.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="LobbyState.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="MouseClient.cpp" />
@@ -70,8 +81,12 @@
     </ClCompile>
     <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateStack.cpp" />
+    <ClCompile Include="TextComponent.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TitleState.cpp" />
+    <ClCompile Include="Utility.cpp" />
     <ClCompile Include="WindowManager.cpp" />
     <ClCompile Include="YarnClient.cpp" />
   </ItemGroup>
