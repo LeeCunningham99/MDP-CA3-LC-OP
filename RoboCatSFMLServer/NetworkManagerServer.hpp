@@ -55,7 +55,7 @@ private:
 	float			mClientDisconnectTimeout;
 
 	//Game Variables
-	float			mGameTime;
+	float			mRoundTime;
 };
 
 

@@ -5,13 +5,15 @@ namespace
 	const float kRespawnDelay = 3.f;
 }
 
-ClientProxy::ClientProxy(const SocketAddress& inSocketAddress, const string& inName, int inPlayerId) : 
+ClientProxy::ClientProxy(const SocketAddress& inSocketAddress, const string& inName, int inPlayerId, float inRoundTime) : 
 	mSocketAddress(inSocketAddress),
 	mName(inName),
 	mPlayerId(inPlayerId),
 	mDeliveryNotificationManager(false, true),
 	mIsLastMoveTimestampDirty(false),
-	mTimeToRespawn(0.f)
+	mTimeToRespawn(0.f),
+	mRoundTime(inRoundTime)
+
 {
 	UpdateLastPacketTime();
 }

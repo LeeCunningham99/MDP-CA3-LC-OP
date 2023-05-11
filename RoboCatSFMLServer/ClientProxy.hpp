@@ -2,7 +2,7 @@ class ClientProxy
 {
 public:
 
-	ClientProxy(const SocketAddress& inSocketAddress, const string& inName, int inPlayerId);
+	ClientProxy(const SocketAddress& inSocketAddress, const string& inName, int inPlayerId, float inRoundTime);
 
 	const	SocketAddress& GetSocketAddress()	const { return mSocketAddress; }
 	int				GetPlayerId()		const { return mPlayerId; }
@@ -41,6 +41,9 @@ private:
 
 	MoveList		mUnprocessedMoveList;
 	bool			mIsLastMoveTimestampDirty;
+
+	//Game Variables
+	float			mRoundTime;
 
 
 
