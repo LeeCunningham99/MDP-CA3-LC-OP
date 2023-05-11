@@ -53,6 +53,9 @@ private:
 	float			mTimeOfLastSatePacket;
 	float			mTimeBetweenStatePackets;
 	float			mClientDisconnectTimeout;
+
+	//Game Variables
+	float			mGameTime;
 };
 
 
