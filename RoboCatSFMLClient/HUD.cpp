@@ -9,7 +9,8 @@ HUD::HUD() :
 	mRoundTripTimeOrigin(580.f, 10.f, 0.0f),
 	mScoreOffset(0.f, 50.f, 0.0f),
 	mHealthOffset(1000, 10.f, 0.0f),
-	mHealth(0)
+	mHealth(0),
+	mBackground()
 {
 }
 
@@ -25,6 +26,7 @@ void HUD::Render()
 	RenderRoundTripTime();
 	RenderScoreBoard();
 	RenderHealth();
+	RenderBackground();
 }
 
 void HUD::RenderHealth()
@@ -77,3 +79,8 @@ void HUD::RenderText(const string& inStr, const Vector3& origin, const Vector3& 
 	WindowManager::sInstance->draw(text);
 }
 
+void HUD::RenderBackground()
+{
+	//m_background.setTexture(*TextureManager::sInstance->GetTexture("city"));
+	//WindowManager::sInstance->draw(m_background);
+}
