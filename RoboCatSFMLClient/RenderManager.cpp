@@ -6,6 +6,7 @@ RenderManager::RenderManager()
 {
 	view.reset(sf::FloatRect(0, 0, 1280, 720));
 	WindowManager::sInstance->setView(view);
+	m_city.setTexture(*TextureManager::sInstance->GetTexture("city"));
 }
 
 
@@ -68,8 +69,10 @@ void RenderManager::Render()
 	//
 	//This is where background colour changes -> Try to get background image here! - Lee
 	WindowManager::sInstance->clear(sf::Color(0, 100, 0, 0));
+	WindowManager::sInstance->draw(m_city);
+	
 
-	GameObjectRegistry::sInstance->CreateGameObject('CITY');
+	//GameObjectRegistry::sInstance->CreateGameObject('CITY');
 	
 	//mSpriteComponent.reset(new SpriteComponent(this));
 	//mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("city"));
@@ -78,6 +81,7 @@ void RenderManager::Render()
 	RenderManager::sInstance->RenderComponents();
 
 	HUD::sInstance->Render();
+	
 
 	//
 	// Present our back buffer to our front buffer

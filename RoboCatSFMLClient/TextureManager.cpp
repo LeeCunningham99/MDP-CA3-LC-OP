@@ -27,9 +27,6 @@ bool TextureManager::CacheTexture(string inTextureName, const char* inFileName)
 	{
 		return false;
 	}
-
 	mNameToTextureMap[inTextureName] = newTexture;
-
 	return true;
-
 }
