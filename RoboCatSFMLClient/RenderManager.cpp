@@ -153,7 +153,7 @@ void RenderManager::Render()
 
 
 		if (players.x == 1.f && FindPlayerHealth() > 0 &&
-			ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 0)
+			ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 2)
 		{
 			// Draw some you are the winner screen.
 			sf::Vector2f winner(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
