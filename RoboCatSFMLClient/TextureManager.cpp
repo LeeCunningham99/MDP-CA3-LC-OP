@@ -13,6 +13,9 @@ TextureManager::TextureManager()
 	CacheTexture("mouse", "../Assets/mouse.png");
 	CacheTexture("yarn", "../Assets/yarn.png");
 	CacheTexture("city", "../Assets/city.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu.png");
+	CacheTexture("deathScreen", "../Assets/deathScreen.png");
+	CacheTexture("winScreen", "../Assets/winScreen.png");
 }
 
 TexturePtr	TextureManager::GetTexture(const string& inTextureName)

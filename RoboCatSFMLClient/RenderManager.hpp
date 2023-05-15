@@ -15,6 +15,8 @@ public:
 	void RemoveComponent(SpriteComponent* inComponent);
 	int	 GetComponentIndex(SpriteComponent* inComponent) const;
 
+	sf::Vector2f FindPlayerCentrePoint();
+
 private:
 
 	RenderManager();
@@ -24,7 +26,9 @@ private:
 
 	sf::View view;
 	sf::Sprite m_city;
-
+	sf::Sprite m_deathScreen;
+	sf::Sprite m_winScreen;
+	sf::Sprite m_lastPos;
 };
 
 

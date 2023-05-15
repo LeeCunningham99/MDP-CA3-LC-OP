@@ -7,6 +7,7 @@ RenderManager::RenderManager()
 	view.reset(sf::FloatRect(0, 0, 1280, 720));
 	WindowManager::sInstance->setView(view);
 	m_city.setTexture(*TextureManager::sInstance->GetTexture("city"));
+	m_deathScreen.setTexture(*TextureManager::sInstance->GetTexture("deathScreen"));
 }
 
 
@@ -62,6 +63,30 @@ void RenderManager::RenderComponents()
 	}
 }
 
+sf::Vector2f RenderManager::FindPlayerCentrePoint()
+{
+	uint32_t catID = (uint32_t)'RCAT';
+	for (auto obj : World::sInstance->GetGameObjects())
+	{
+		// Find a cat.
+		if (obj->GetClassId() == catID)
+		{
+			RoboCat* cat = dynamic_cast<RoboCat*>(obj.get());
+			auto id = cat->GetPlayerId();
+			auto ourID = NetworkManagerClient::sInstance->GetPlayerId();
+			if (id == ourID)
+			{
+				// If so grab the centre point.
+				auto centre = cat->GetLocation();
+				//m_lastPos.x = centre.mX;
+				//m_lastPos.y = centre.mY;
+				return sf::Vector2f(centre.mX, centre.mY);
+			}
+		}
+	}
+	return sf::Vector2f(-1, -1);
+}
+
 void RenderManager::Render()
 {
 	//
@@ -71,6 +96,13 @@ void RenderManager::Render()
 	WindowManager::sInstance->clear(sf::Color(0, 100, 0, 0));
 	WindowManager::sInstance->draw(m_city);
 	
+	if (FindPlayerCentrePoint() == sf::Vector2f(-1, 1))
+	{
+		sf::Vector2f died(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
+		m_deathScreen.setPosition(died);
+		WindowManager::sInstance->draw(m_deathScreen);
+	}
+
 
 	//GameObjectRegistry::sInstance->CreateGameObject('CITY');
 	
