@@ -80,6 +80,8 @@ sf::Vector2f RenderManager::FindPlayerCentrePoint()
 				auto centre = cat->GetLocation();
 				//m_lastPos.x = centre.mX;
 				//m_lastPos.y = centre.mY;
+				auto cen = view.getCenter();
+				auto size = view.getSize();
 				return sf::Vector2f(centre.mX, centre.mY);
 			}
 		}
@@ -96,6 +98,7 @@ void RenderManager::Render()
 	WindowManager::sInstance->clear(sf::Color(0, 100, 0, 0));
 	WindowManager::sInstance->draw(m_city);
 	
+	//When player is dead display screen
 	if (FindPlayerCentrePoint() == sf::Vector2f(-1, 1))
 	{
 		sf::Vector2f died(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
