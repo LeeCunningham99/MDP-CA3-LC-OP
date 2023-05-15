@@ -8,6 +8,7 @@ RenderManager::RenderManager()
 	WindowManager::sInstance->setView(view);
 	m_city.setTexture(*TextureManager::sInstance->GetTexture("city"));
 	m_deathScreen.setTexture(*TextureManager::sInstance->GetTexture("deathScreen"));
+	m_winScreen.setTexture(*TextureManager::sInstance->GetTexture("winScreen"));
 }
 
 
@@ -86,8 +87,48 @@ sf::Vector2f RenderManager::FindPlayerCentrePoint()
 			}
 		}
 	}
-	return sf::Vector2f(-1, -1);
+	return sf::Vector2f(0, 0);
 }
+
+uint8_t RenderManager::FindPlayerHealth()
+{
+	uint32_t playerID = (uint32_t)'RCAT';
+	for (auto obj : World::sInstance->GetGameObjects())
+	{
+		// Find a cat.
+		if (obj->GetClassId() == playerID)
+		{
+			RoboCat* player = dynamic_cast<RoboCat*>(obj.get());
+			auto id = player->GetPlayerId();
+			auto ourID = NetworkManagerClient::sInstance->GetPlayerId();
+			if (id == ourID)
+			{
+				return player->GetHealth();
+			}
+		}
+	}
+	return 0;
+}
+
+sf::Vector2f RenderManager::AlivePlayers()
+{
+	int Players = 0;
+	int alivePlayers = 0;
+	uint32_t playerID = (uint32_t)'RCAT';
+	for (auto obj : World::sInstance->GetGameObjects())
+	{
+		// Find a cat.
+		if (obj->GetClassId() == playerID)
+		{
+			RoboCat* cat = dynamic_cast<RoboCat*>(obj.get());
+			Players++;
+			if (cat->GetHealth() > 0)
+				alivePlayers++;
+		}
+	}
+	return sf::Vector2f(alivePlayers, Players);
+}
+
 
 void RenderManager::Render()
 {
@@ -99,11 +140,26 @@ void RenderManager::Render()
 	WindowManager::sInstance->draw(m_city);
 	
 	//When player is dead display screen
-	if (FindPlayerCentrePoint() == sf::Vector2f(-1, 1))
+	if (FindPlayerCentrePoint() == sf::Vector2f(-0, 0))
 	{
 		sf::Vector2f died(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
 		m_deathScreen.setPosition(died);
 		WindowManager::sInstance->draw(m_deathScreen);
+	}
+	else
+	{
+		//We are the last player alive.
+		sf::Vector2f players = AlivePlayers();
+
+
+		if (players.x == 1.f && FindPlayerHealth() > 0 &&
+			ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 0)
+		{
+			// Draw some you are the winner screen.
+			sf::Vector2f winner(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
+			m_winScreen.setPosition(winner);
+			WindowManager::sInstance->draw(m_winScreen);
+		}
 	}
 
 

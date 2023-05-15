@@ -21,6 +21,9 @@ private:
 
 	RenderManager();
 
+	uint8_t FindPlayerHealth();
+	sf::Vector2f AlivePlayers();
+
 	//this can't be only place that holds on to component- it has to live inside a GameObject in the world
 	vector< SpriteComponent* >		mComponents;
 
