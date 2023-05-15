@@ -193,9 +193,9 @@ namespace RoboMath
 namespace Colors
 {
 	static const Vector3 Black(0.0f, 0.0f, 0.0f);
-	static const Vector3 White(255.0f, 255.0f, 255.0f);
-	static const Vector3 Red(255.0f, 0.0f, 0.0f);
-	static const Vector3 Orange(255.0f, 165.0f, 0.0f);
+	static const Vector3 White(200.0f, 230.0f, 125.0f);
+	static const Vector3 Red(255.0f, 165.0f, 50.0f);
+	static const Vector3 Orange(245.0f, 220.0f, 150.0f);
 	static const Vector3 Green(0.0f, 255.0f, 0.0f);
 	static const Vector3 Blue(0.0f, 0.0f, 255.0f);
 	static const Vector3 LightYellow(255.0f, 255.0f, 224.4f);
