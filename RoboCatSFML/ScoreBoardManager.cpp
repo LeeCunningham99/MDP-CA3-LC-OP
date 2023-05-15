@@ -10,10 +10,10 @@ void ScoreBoardManager::StaticInit()
 
 ScoreBoardManager::ScoreBoardManager()
 {
-	mDefaultColors.push_back(Colors::LightYellow);
-	mDefaultColors.push_back(Colors::LightBlue);
-	mDefaultColors.push_back(Colors::LightPink);
-	mDefaultColors.push_back(Colors::LightGreen);
+	mDefaultColors.push_back(Colors::Red);
+	mDefaultColors.push_back(Colors::Orange); //Changes players id colour and shader over player sprite
+	mDefaultColors.push_back(Colors::Blue);
+	mDefaultColors.push_back(Colors::Red);
 }
 
 ScoreBoardManager::Entry::Entry(uint32_t inPlayerId, const string& inPlayerName, const Vector3& inColor) :
@@ -144,7 +144,3 @@ bool ScoreBoardManager::Entry::Read(InputMemoryBitStream& inInputStream)
 
 	return didSucceed;
 }
-
-
-
-

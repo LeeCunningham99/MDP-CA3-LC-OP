@@ -102,7 +102,7 @@ void NetworkManagerServer::HandlePacketFromNewClient(InputMemoryBitStream& inInp
 	else
 	{
 		//bad incoming packet from unknown client- we're under attack!!
-		LOG("Bad incoming packet from unknown client at socket %s", inFromAddress.ToString().c_str());
+		LOG("Bad incoming packet from unknown employee at socket %s", inFromAddress.ToString().c_str());
 	}
 }
 
@@ -113,7 +113,7 @@ void NetworkManagerServer::SendWelcomePacket(ClientProxyPtr inClientProxy)
 	welcomePacket.Write(kWelcomeCC);
 	welcomePacket.Write(inClientProxy->GetPlayerId());
 
-	LOG("Server Welcoming, new client '%s' as player %d", inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId());
+	LOG("Server Welcoming, new employee '%s' as player %d", inClientProxy->GetName().c_str(), inClientProxy->GetPlayerId());
 
 	SendPacket(welcomePacket, inClientProxy->GetSocketAddress());
 }
@@ -216,7 +216,7 @@ int NetworkManagerServer::GetNewNetworkId()
 	int toRet = mNewNetworkId++;
 	if (mNewNetworkId < toRet)
 	{
-		LOG("Network ID Wrap Around!!! You've been playing way too long...", 0);
+		LOG("Network ID Wrap Around!!! You've been working way too long...", 0);
 	}
 
 	return toRet;

@@ -5,7 +5,7 @@ const float WORLD_WIDTH = 1280.f;
 
 RoboCat::RoboCat() :
 	GameObject(),
-	mMaxRotationSpeed(100.f),
+	mMaxRotationSpeed(160.f),
 	mMaxLinearSpeed(5000.f),
 	mVelocity(Vector3::Zero),
 	mWallRestitution(0.1f),
@@ -247,9 +247,4 @@ uint32_t RoboCat::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyS
 	}
 
 	return writtenState;
-
-
 }
-
-
-

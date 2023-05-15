@@ -4,11 +4,11 @@ std::unique_ptr< HUD >	HUD::sInstance;
 
 
 HUD::HUD() :
-	mScoreBoardOrigin(50.f, 60.f, 0.0f),
-	mBandwidthOrigin(50.f, 10.f, 0.0f),
-	mRoundTripTimeOrigin(580.f, 10.f, 0.0f),
-	mScoreOffset(0.f, 50.f, 0.0f),
-	mHealthOffset(1000, 10.f, 0.0f),
+	mScoreBoardOrigin(190.f, 10.f, 0.0f),
+	mBandwidthOrigin(380.f, 10.f, 0.0f),
+	mRoundTripTimeOrigin(980.f, 10.f, 0.0f),
+	mScoreOffset(0.f, 50.f, 50.0f),
+	mHealthOffset(50, 10.f, 0.0f),
 	mHealth(0)
 {
 }
@@ -31,7 +31,7 @@ void HUD::RenderHealth()
 {
 	if (mHealth > 0)
 	{
-		string healthString = StringUtils::Sprintf("Health %d", mHealth);
+		string healthString = StringUtils::Sprintf("HP: %d", mHealth);
 		RenderText(healthString, mHealthOffset, Colors::Red);
 	}
 }
@@ -76,4 +76,3 @@ void HUD::RenderText(const string& inStr, const Vector3& origin, const Vector3& 
 	text.setFont(*FontManager::sInstance->GetFont("carlito"));
 	WindowManager::sInstance->draw(text);
 }
-
