@@ -169,6 +169,8 @@ void NetworkManagerServer::SendStatePacketToClient(ClientProxyPtr inClientProxy)
 
 	AddScoreBoardStateToPacket(statePacket);
 
+	AddRoundTimerToPacket(statePacket);
+
 	ReplicationManagerTransmissionData* rmtd = new ReplicationManagerTransmissionData(&inClientProxy->GetReplicationManagerServer());
 	inClientProxy->GetReplicationManagerServer().Write(statePacket, rmtd);
 	ifp->SetTransmissionData('RPLM', TransmissionDataPtr(rmtd));
@@ -209,6 +211,16 @@ void NetworkManagerServer::AddScoreBoardStateToPacket(OutputMemoryBitStream& inO
 {
 	ScoreBoardManager::sInstance->Write(inOutputStream);
 }
+
+void NetworkManagerServer::AddRoundTimerToPacket(OutputMemoryBitStream& inOutputStream)
+{
+	//TODO -  test timer
+	Timing timing;
+	mRoundTimer -= timing.GetDeltaTime();
+	inOutputStream.Write(mRoundTimer);
+}
+
+
 
 
 int NetworkManagerServer::GetNewNetworkId()
