@@ -9,14 +9,13 @@ RenderManager::RenderManager()
 	m_city.setTexture(*TextureManager::sInstance->GetTexture("city"));
 	m_deathScreen.setTexture(*TextureManager::sInstance->GetTexture("deathScreen"));
 	m_winScreen.setTexture(*TextureManager::sInstance->GetTexture("winScreen"));
+	m_winScreen.setTexture(*TextureManager::sInstance->GetTexture("mainMenu"));
 }
-
 
 void RenderManager::StaticInit()
 {
 	sInstance.reset(new RenderManager());
 }
-
 
 void RenderManager::AddComponent(SpriteComponent* inComponent)
 {
@@ -50,7 +49,6 @@ int RenderManager::GetComponentIndex(SpriteComponent* inComponent) const
 
 	return -1;
 }
-
 
 //this part that renders the world is really a camera-
 //in a more detailed engine, we'd have a list of cameras, and then render manager would
@@ -129,54 +127,51 @@ sf::Vector2f RenderManager::AlivePlayers()
 	return sf::Vector2f(alivePlayers, Players);
 }
 
-
 void RenderManager::Render()
 {
 	//
 	// Clear the back buffer
 	//
 	//This is where background colour changes -> Try to get background image here! - Lee
-	WindowManager::sInstance->clear(sf::Color(0, 100, 0, 0));
-	WindowManager::sInstance->draw(m_city);
-	
-	//When player is dead display screen
-	if (FindPlayerCentrePoint() == sf::Vector2f(-0, 0))
+	if (mComponents.size() > 0)
 	{
-		sf::Vector2f died(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
-		m_deathScreen.setPosition(died);
-		WindowManager::sInstance->draw(m_deathScreen);
+		WindowManager::sInstance->clear(sf::Color(0, 100, 0, 0));
+		WindowManager::sInstance->draw(m_city);
+		RenderManager::sInstance->RenderComponents();
+
+		HUD::sInstance->Render();
+
+		//When player is dead display screen
+		if (FindPlayerCentrePoint() == sf::Vector2f(-0, 0))
+		{
+			sf::Vector2f died(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
+			m_deathScreen.setPosition(died);
+			WindowManager::sInstance->draw(m_deathScreen);
+		}
+		else
+		{
+			//We are the last player alive.
+			sf::Vector2f players = AlivePlayers();
+
+			if (players.x == 1.f && FindPlayerHealth() > 0 &&
+				ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 0)
+			{
+				// Draw some you are the winner screen.
+				sf::Vector2f winner(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
+				m_winScreen.setPosition(winner);
+				WindowManager::sInstance->draw(m_winScreen);
+			}
+		}
 	}
 	else
 	{
-		//We are the last player alive.
-		sf::Vector2f players = AlivePlayers();
-
-
-		if (players.x == 1.f && FindPlayerHealth() > 0 &&
-			ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 5)
-		{
-			// Draw some you are the winner screen.
-			sf::Vector2f winner(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
-			m_winScreen.setPosition(winner);
-			WindowManager::sInstance->draw(m_winScreen);
-		}
+		WindowManager::sInstance->draw(m_mainMenu);
 	}
-
-
 	//GameObjectRegistry::sInstance->CreateGameObject('CITY');
-	
 	//mSpriteComponent.reset(new SpriteComponent(this));
 	//mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("city"));
-
-
-	RenderManager::sInstance->RenderComponents();
-
-	HUD::sInstance->Render();
-	
-
 	//
 	// Present our back buffer to our front buffer
 	//
 	WindowManager::sInstance->display();
-
 }

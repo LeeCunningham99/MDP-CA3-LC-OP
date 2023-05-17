@@ -31,6 +31,7 @@ private:
 	sf::Sprite m_city;
 	sf::Sprite m_deathScreen;
 	sf::Sprite m_winScreen;
+	sf::Sprite m_mainMenu;
 	sf::Sprite m_lastPos;
 };
 
