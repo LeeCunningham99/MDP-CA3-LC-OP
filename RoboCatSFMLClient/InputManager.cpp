@@ -83,9 +83,41 @@ void InputManager::HandleInput(EInputAction inInputAction, int inKeyCode)
 		break;
 	}
 	}
-
 }
 
+void InputManager::SearchForController()
+{
+		// Check if there is a controller in here. (Expensive?)
+		if (!sf::Joystick::isConnected(0))
+			return;
+
+		if (!sf::Joystick::hasAxis(0, sf::Joystick::X) ||
+			!sf::Joystick::hasAxis(0, sf::Joystick::X))
+			return;
+
+		// Take the controller input.
+		if (sf::Joystick::getAxisPosition(0, sf::Joystick::Y) >= 60)
+			mCurrentState.mDesiredBackAmount = 1.f;
+		else
+			mCurrentState.mDesiredBackAmount = 0.f;
+
+		if (sf::Joystick::getAxisPosition(0, sf::Joystick::Y) <= -60)
+			mCurrentState.mDesiredForwardAmount = 1.f;
+		else
+			mCurrentState.mDesiredForwardAmount = 0.f;
+
+
+		// Take the controller input.
+		if (sf::Joystick::getAxisPosition(0, sf::Joystick::X) <= -60)
+			mCurrentState.mDesiredLeftAmount = 1.f;
+		else
+			mCurrentState.mDesiredLeftAmount = 0.f;
+
+		if (sf::Joystick::getAxisPosition(0, sf::Joystick::X) >= 60)
+			mCurrentState.mDesiredRightAmount = 1.f;
+		else
+			mCurrentState.mDesiredRightAmount = 0.f;
+	}
 
 InputManager::InputManager() :
 	mNextTimeToSampleInput(0.f),

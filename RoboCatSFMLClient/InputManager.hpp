@@ -5,6 +5,7 @@ public:
 	static unique_ptr< InputManager >	sInstance;
 
 	void HandleInput(EInputAction inInputAction, int inKeyCode);
+	void SearchForController();
 
 	const InputState& GetState()	const { return mCurrentState; }
 

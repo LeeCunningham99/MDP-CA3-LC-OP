@@ -166,6 +166,20 @@ void RenderManager::Render()
 	else
 	{
 		WindowManager::sInstance->draw(m_mainMenu);
+
+
+
+		// <Failed> Attempt 1 at creating buttons for menu - Lee
+		/*
+		auto play_button = std::make_shared<GUI::Button>(context);
+		play_button->setPosition(520, 350);
+		play_button->SetText("Join Lobby");
+		play_button->SetCallback([this]()
+			{
+				RequestStackPop();
+				RequestStackPush(StateID::kJoinGame);
+			});
+			*/
 	}
 	//GameObjectRegistry::sInstance->CreateGameObject('CITY');
 	//mSpriteComponent.reset(new SpriteComponent(this));
