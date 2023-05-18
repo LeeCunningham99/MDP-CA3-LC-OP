@@ -179,6 +179,11 @@ void NetworkManagerClient::HandleScoreBoardState(InputMemoryBitStream& inInputSt
 	ScoreBoardManager::sInstance->Read(inInputStream);
 }
 
+void NetworkManagerClient::HandleRoundTimer(InputMemoryBitStream& inInputStream)
+{
+	//TO DO - add round timer
+}
+
 void NetworkManagerClient::DestroyGameObjectsInMap(const IntToGameObjectMap& inObjectsToDestroy)
 {
 	for (auto& pair : inObjectsToDestroy)
