@@ -60,6 +60,17 @@ void ReplicationManagerClient::ReadAndDoUpdateAction(InputMemoryBitStream& inInp
 	//gameObject MUST be found, because create was ack'd if we're getting an update...
 	//and read state
 	gameObject->Read(inInputStream);
+	if (gameObject->GetClassId() == 'RCAT')
+	{
+		SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Join);
+	}
+	if (gameObject->GetClassId() == 'YARN')
+	{
+		auto loc = RenderManager::sInstance->FindPlayerCentrePoint();
+		sf::Listener::setPosition(loc.x, loc.y, 0);
+
+		SoundManager::sInstance->PlaySoundAtLocation(SoundManager::SoundToPlay::STP_Shoot, sf::Vector3f(gameObject->GetLocation().mX, gameObject->GetLocation().mY, 0));
+	}
 }
 
 void ReplicationManagerClient::ReadAndDoDestroyAction(InputMemoryBitStream& inInputStream, int inNetworkId)
@@ -69,6 +80,10 @@ void ReplicationManagerClient::ReadAndDoDestroyAction(InputMemoryBitStream& inIn
 	GameObjectPtr gameObject = NetworkManagerClient::sInstance->GetGameObject(inNetworkId);
 	if (gameObject)
 	{
+		if (gameObject->GetClassId() == 'RCAT')
+		{
+			SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Death);
+		}
 		gameObject->SetDoesWantToDie(true);
 		NetworkManagerClient::sInstance->RemoveNetworkIdToGameObjectMap(gameObject);
 	}

@@ -13,6 +13,7 @@ bool Client::StaticInit()
 	
 
 	HUD::StaticInit();
+	SoundManager::StaticInit();
 
 	s_instance.reset(client);
 

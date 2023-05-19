@@ -20,6 +20,8 @@ RenderManager::RenderManager()
 	m_mainMenu20.setTexture(*TextureManager::sInstance->GetTexture("mainMenu20"));
 	m_mainMenu10.setTexture(*TextureManager::sInstance->GetTexture("mainMenu10"));
 	m_mainMenu00.setTexture(*TextureManager::sInstance->GetTexture("mainMenu00"));
+	//Audio
+
 }
 
 void RenderManager::StaticInit()
@@ -157,6 +159,7 @@ void RenderManager::Render()
 			sf::Vector2f died(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
 			m_deathScreen.setPosition(died);
 			WindowManager::sInstance->draw(m_deathScreen);
+
 		}
 		else
 		{
@@ -176,7 +179,7 @@ void RenderManager::Render()
 	else
 	{
 		WindowManager::sInstance->draw(m_mainMenu);
-		
+		/*
 		sf::Clock clock;
 		float time_interval;
 		time_interval = clock.getElapsedTime().asSeconds();
@@ -231,6 +234,7 @@ void RenderManager::Render()
 			WindowManager::sInstance->draw(m_mainMenu00);
 		}
 		
+		*/
 		/*
 		{
 			sf::Vector2f players = AlivePlayers();

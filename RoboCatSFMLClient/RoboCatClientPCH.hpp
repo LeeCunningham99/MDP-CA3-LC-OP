@@ -21,4 +21,6 @@
 #include "NetworkManagerClient.hpp"
 #include "Client.hpp"
 
+#include "SoundManager.hpp"
+
 
