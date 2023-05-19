@@ -33,6 +33,9 @@ private:
 	sf::Sprite m_winScreen;
 	sf::Sprite m_mainMenu;
 	sf::Sprite m_lastPos;
+	bool m_start_countdown;
+	float m_start_countdown_timer;
+	float m_failed_connection_timer;
 };
 
 

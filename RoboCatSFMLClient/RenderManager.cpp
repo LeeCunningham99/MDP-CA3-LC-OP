@@ -166,6 +166,8 @@ void RenderManager::Render()
 	else
 	{
 		WindowManager::sInstance->draw(m_mainMenu);
+		m_mainMenu.setColor(sf::Color(0, 0, 0, 50));
+
 
 
 

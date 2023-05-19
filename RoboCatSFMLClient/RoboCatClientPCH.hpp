@@ -21,4 +21,9 @@
 #include "NetworkManagerClient.hpp"
 #include "Client.hpp"
 
+#include "State.hpp"
+#include "TitleState.hpp"
+#include "StateID.hpp"
+#include "StackManager.hpp"
+
 
