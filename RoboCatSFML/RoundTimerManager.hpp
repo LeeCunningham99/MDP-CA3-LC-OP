@@ -1,8 +1,11 @@
 #pragma once
 class RoundTimerManager
 {
-	//static void StaticInit();
-	//static std::unique_ptr< RoundTimerManager >	sInstance;
+public:
+	static void StaticInit();
+	static std::unique_ptr< RoundTimerManager >	sInstance;
+
+
 
 
 	float GetTimer()		const { return mTimer; }

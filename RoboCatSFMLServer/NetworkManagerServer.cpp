@@ -217,7 +217,8 @@ void NetworkManagerServer::AddRoundTimerToPacket(OutputMemoryBitStream& inOutput
 	//TODO -  test timer
 	Timing timing;
 	mRoundTimer -= timing.GetDeltaTime();
-	inOutputStream.Write(mRoundTimer);
+	//inOutputStream.Write(mRoundTimer);
+	RoundTimerManager::sInstance->Write(inOutputStream);
 }
 
 

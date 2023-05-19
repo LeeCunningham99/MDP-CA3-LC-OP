@@ -66,6 +66,12 @@ void HUD::RenderScoreBoard()
 
 }
 
+void HUD::RenderRoundTimer()
+{
+	const string& timerStr = RoundTimerManager::sInstance->GetFormattedTimer();
+	RenderText(timerStr, Vector3(900.f, 10.f, 0.f), Colors::White);
+}
+
 void HUD::RenderText(const string& inStr, const Vector3& origin, const Vector3& inColor)
 {
 	sf::Text text;

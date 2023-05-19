@@ -1,6 +1,12 @@
 #include "RoboCatPCH.hpp"
 #include "RoundTimerManager.hpp"
 
+
+void RoundTimerManager::StaticInit()
+{
+	sInstance.reset(new RoundTimerManager());
+}
+
 void RoundTimerManager::SetTimer(int inTimer)
 {
 	mTimer = inTimer;
@@ -18,7 +24,7 @@ bool RoundTimerManager::Write(OutputMemoryBitStream& inOutputStream) const
 bool RoundTimerManager::Read(InputMemoryBitStream& inInputStream)
 {
 	inInputStream.Read(mTimer);
-	return false;
+	return true;
 }
 
 

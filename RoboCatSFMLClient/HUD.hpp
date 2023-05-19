@@ -18,6 +18,7 @@ private:
 	void	RenderBandWidth();
 	void	RenderRoundTripTime();
 	void	RenderScoreBoard();
+	void	RenderRoundTimer();
 	void	RenderHealth();
 	void	RenderText(const string& inStr, const Vector3& origin, const Vector3& inColor);
 
