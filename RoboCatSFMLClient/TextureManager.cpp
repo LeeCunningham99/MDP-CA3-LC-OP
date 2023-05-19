@@ -14,6 +14,16 @@ TextureManager::TextureManager()
 	CacheTexture("yarn", "../Assets/yarn.png");
 	CacheTexture("city", "../Assets/city.png");
 	CacheTexture("mainMenu", "../Assets/MainMenu.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu90.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu80.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu70.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu60.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu50.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu40.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu30.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu20.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu10.png");
+	CacheTexture("mainMenu", "../Assets/MainMenu00.png");
 	CacheTexture("deathScreen", "../Assets/deathScreen.png");
 	CacheTexture("winScreen", "../Assets/winScreen.png");
 }
