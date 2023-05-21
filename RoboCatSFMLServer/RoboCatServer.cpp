@@ -73,7 +73,7 @@ void RoboCatServer::HandleShooting()
 		yarn->InitFromShooter(this);
 	}
 }
-
+/*
 void CreateRandomMice(int inMouseCount)
 {
 	Vector3 mouseMin(100.f, 100.f, 0.f);
@@ -88,6 +88,7 @@ void CreateRandomMice(int inMouseCount)
 		go->SetLocation(mouseLocation);
 	}
 }
+*/
 
 void RoboCatServer::TakeDamage(int inDamagingPlayerId)
 {
@@ -99,7 +100,7 @@ void RoboCatServer::TakeDamage(int inDamagingPlayerId)
 
 		//and you want to die
 		SetDoesWantToDie(true);
-		CreateRandomMice(1);
+		//CreateRandomMice(1);
 
 		//tell the client proxy to make you a new cat
 		ClientProxyPtr clientProxy = NetworkManagerServer::sInstance->GetClientProxy(GetPlayerId());
