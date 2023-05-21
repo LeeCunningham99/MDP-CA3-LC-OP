@@ -10,6 +10,17 @@ RenderManager::RenderManager()
 	m_deathScreen.setTexture(*TextureManager::sInstance->GetTexture("deathScreen"));
 	m_winScreen.setTexture(*TextureManager::sInstance->GetTexture("winScreen"));
 	m_mainMenu.setTexture(*TextureManager::sInstance->GetTexture("mainMenu"));
+	m_mainMenu90.setTexture(*TextureManager::sInstance->GetTexture("mainMenu90"));
+	m_mainMenu80.setTexture(*TextureManager::sInstance->GetTexture("mainMenu80"));
+	m_mainMenu70.setTexture(*TextureManager::sInstance->GetTexture("mainMenu70"));
+	m_mainMenu60.setTexture(*TextureManager::sInstance->GetTexture("mainMenu60"));
+	m_mainMenu50.setTexture(*TextureManager::sInstance->GetTexture("mainMenu50"));
+	m_mainMenu40.setTexture(*TextureManager::sInstance->GetTexture("mainMenu40"));
+	m_mainMenu30.setTexture(*TextureManager::sInstance->GetTexture("mainMenu30"));
+	m_mainMenu20.setTexture(*TextureManager::sInstance->GetTexture("mainMenu20"));
+	m_mainMenu10.setTexture(*TextureManager::sInstance->GetTexture("mainMenu10"));
+	m_mainMenu00.setTexture(*TextureManager::sInstance->GetTexture("mainMenu00"));
+
 }
 
 void RenderManager::StaticInit()
@@ -167,6 +178,59 @@ void RenderManager::Render()
 	{
 		WindowManager::sInstance->draw(m_mainMenu);
 
+		sf::Clock clock;
+		float time_interval;
+		time_interval = clock.getElapsedTime().asSeconds();
+		if (time_interval > 3)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu90);
+		}
+		if (time_interval > 4)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu80);
+		}
+		if (time_interval > 5)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu70);
+		}
+		if (time_interval > 6)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu60);
+		}
+		if (time_interval > 7)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu50);
+		}
+		if (time_interval > 8)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu40);
+		}
+		if (time_interval > 9)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu30);
+		}
+		if (time_interval > 10)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu20);
+		}
+		if (time_interval > 11)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu10);
+		}
+		if (time_interval > 12)
+		{
+			WindowManager::sInstance->clear(sf::Color(0, 0, 0, 0));
+			WindowManager::sInstance->draw(m_mainMenu00);
+		}
 
 
 		// <Failed> Attempt 1 at creating buttons for menu - Lee
