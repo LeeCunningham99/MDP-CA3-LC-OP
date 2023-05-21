@@ -75,7 +75,7 @@ namespace
 void Server::SetupWorld()
 {
 	//spawn some random mice
-	CreateRandomMice(30);
+	CreateRandomMice(10);
 
 	//Attempt to add background in -> Lee
 	//GameObjectRegistry::sInstance->CreateGameObject('CITY');
@@ -127,6 +127,7 @@ void Server::HandleLostClient(ClientProxyPtr inClientProxy)
 	if (cat)
 	{
 		cat->SetDoesWantToDie(true);
+		CreateRandomMice(1);
 	}
 }
 
