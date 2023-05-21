@@ -109,8 +109,10 @@ uint32_t ReplicationManagerServer::WriteDestroyAction(OutputMemoryBitStream& inO
 	return inDirtyState;
 }
 
+/*
 uint32_t ReplicationManagerServer::WriteRPCAction(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState)
 {
 	inOutputStream.Write(SoundManager::SoundToPlay::STP_Join);
 	return inDirtyState;
 }
+*/

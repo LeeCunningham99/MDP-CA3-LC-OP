@@ -3,7 +3,7 @@
 
 YarnClient::YarnClient()
 {
-	SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Shoot);
+	//SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Shoot);
 	mSpriteComponent.reset(new SpriteComponent(this));
 	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("yarn"));
 }

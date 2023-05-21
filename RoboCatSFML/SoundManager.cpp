@@ -1,5 +1,5 @@
 #include "RoboCatPCH.hpp"
-
+/*
 std::unique_ptr< SoundManager >	SoundManager::sInstance;
 
 void SoundManager::StaticInit()
@@ -70,3 +70,4 @@ void SoundManager::PlaySoundAtLocation(SoundToPlay p_sound, sf::Vector3f p_locat
 		break;
 	}
 }
+*/

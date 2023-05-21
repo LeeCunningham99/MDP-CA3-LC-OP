@@ -1,3 +1,4 @@
+/*
 class SoundManager
 {
 public:
@@ -22,3 +23,4 @@ protected:
 	void LoadSoundFromFile(sf::Sound& p_sound, sf::SoundBuffer& p_buffer, string p_file);
 	void LoadMusicFromFile(sf::Music& p_music, string p_file);
 };
+*/
