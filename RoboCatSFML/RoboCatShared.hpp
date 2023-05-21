@@ -89,6 +89,8 @@ class GameObject;
 #include "StringUtils.hpp"
 #include "ScoreBoardManager.hpp"
 
+#include "SoundManager.hpp"
+
 #include "WeightedTimedMovingAverage.hpp"
 #include "ReplicationCommand.hpp"
 #include "NetworkManager.hpp"

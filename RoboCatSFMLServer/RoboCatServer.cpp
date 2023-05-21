@@ -74,6 +74,21 @@ void RoboCatServer::HandleShooting()
 	}
 }
 
+void CreateRandomMice(int inMouseCount)
+{
+	Vector3 mouseMin(100.f, 100.f, 0.f);
+	Vector3 mouseMax(1180.f, 620.f, 0.f);
+	GameObjectPtr go;
+
+	//make a mouse somewhere- where will these come from?
+	for (int i = 0; i < inMouseCount; ++i)
+	{
+		go = GameObjectRegistry::sInstance->CreateGameObject('MOUS');
+		Vector3 mouseLocation = RoboMath::GetRandomVector(mouseMin, mouseMax);
+		go->SetLocation(mouseLocation);
+	}
+}
+
 void RoboCatServer::TakeDamage(int inDamagingPlayerId)
 {
 	mHealth--;
@@ -84,6 +99,7 @@ void RoboCatServer::TakeDamage(int inDamagingPlayerId)
 
 		//and you want to die
 		SetDoesWantToDie(true);
+		CreateRandomMice(1);
 
 		//tell the client proxy to make you a new cat
 		ClientProxyPtr clientProxy = NetworkManagerServer::sInstance->GetClientProxy(GetPlayerId());

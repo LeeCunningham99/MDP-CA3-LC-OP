@@ -148,5 +148,6 @@ void InputManager::Update()
 	if (IsTimeToSampleInput())
 	{
 		mPendingMove = &SampleInputAsMove();
+		SearchForController();
 	}
 }

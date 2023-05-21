@@ -50,6 +50,17 @@ void ReplicationManagerClient::ReadAndDoCreateAction(InputMemoryBitStream& inInp
 
 	//and read state
 	gameObject->Read(inInputStream);
+	if (gameObject->GetClassId() == 'RCAT')
+	{
+		SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Join);
+	}
+	if (gameObject->GetClassId() == 'YARN')
+	{
+		auto loc = RenderManager::sInstance->FindPlayerCentrePoint();
+		sf::Listener::setPosition(loc.x, loc.y, 0);
+
+		SoundManager::sInstance->PlaySoundAtLocation(SoundManager::SoundToPlay::STP_Shoot, sf::Vector3f(gameObject->GetLocation().mX, gameObject->GetLocation().mY, 0));
+	}
 }
 
 void ReplicationManagerClient::ReadAndDoUpdateAction(InputMemoryBitStream& inInputStream, int inNetworkId)
@@ -69,7 +80,19 @@ void ReplicationManagerClient::ReadAndDoDestroyAction(InputMemoryBitStream& inIn
 	GameObjectPtr gameObject = NetworkManagerClient::sInstance->GetGameObject(inNetworkId);
 	if (gameObject)
 	{
+		if (gameObject->GetClassId() == 'RCAT')
+		{
+			SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Death);
+		}
 		gameObject->SetDoesWantToDie(true);
 		NetworkManagerClient::sInstance->RemoveNetworkIdToGameObjectMap(gameObject);
 	}
+}
+
+void ReplicationManagerClient::ReadAndDoRPCAction(InputMemoryBitStream& inInputStream, int inNetworkId)
+{
+	SoundManager::SoundToPlay sound;
+	inInputStream.Read(sound);
+	SoundManager::sInstance->PlaySound(sound);
+	//Log("Sound Played");
 }
