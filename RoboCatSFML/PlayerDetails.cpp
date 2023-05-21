@@ -29,26 +29,11 @@ void ConnectionDetails::Load()
 		m_clientName = line;
 	}
 	nameFile.close();
-
-	std::ifstream ipFile("../Assets/inputs/ip.txt");
-	if (ipFile.good())
-	{
-		getline(ipFile, line);
-		m_clientIP = line;
-	}
-	ipFile.close();
 }
 
 string ConnectionDetails::GetClientName()
 {
 	return m_clientName;
-}
-
-string ConnectionDetails::GetClientDestination()
-{
-	string asd = m_clientIP + ":" + std::to_string(m_clientPort);
-	StringUtils::Log(asd.c_str(), 1);
-	return m_clientIP + ":" + std::to_string(m_clientPort);
 }
 
 uint16_t ConnectionDetails::GetServerPort()

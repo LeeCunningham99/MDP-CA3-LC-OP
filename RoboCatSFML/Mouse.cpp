@@ -4,11 +4,16 @@ Mouse::Mouse()
 {
 	SetScale(GetScale() * 0.04f);
 	SetCollisionRadius(10.f);
+	picked = false;
 }
 
 
 bool Mouse::HandleCollisionWithCat(RoboCat* inCat)
 {
+	if (!picked)
+	{
+		//SoundManager::sInstance->PlaySound(SoundManager::SoundToPlay::STP_Pickup);
+	}
 	(void)inCat;
 	return false;
 }

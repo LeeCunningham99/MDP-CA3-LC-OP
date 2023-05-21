@@ -13,7 +13,6 @@ public:
 
 private:
 	string m_clientName;
-	string m_clientIP;
 	uint16_t m_clientPort;
 	uint16_t m_serverPort;
 
