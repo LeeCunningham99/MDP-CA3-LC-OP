@@ -15,7 +15,7 @@ public:
 
 	//static float	GetSerializedSize();
 
-	const string& GetFormattedTimer()	const { return mFormattedTimer; }
+	//const string& GetFormattedTimer()	const { return mFormattedTimer; }
 
 
 	bool			Write(OutputMemoryBitStream& inOutputStream) const;

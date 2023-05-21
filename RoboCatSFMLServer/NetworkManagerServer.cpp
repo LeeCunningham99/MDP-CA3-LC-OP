@@ -2,12 +2,13 @@
 
 NetworkManagerServer* NetworkManagerServer::sInstance;
 
-
+//add round timer here?
 NetworkManagerServer::NetworkManagerServer() :
 	mNewPlayerId(1),
 	mNewNetworkId(1),
 	mTimeBetweenStatePackets(0.033f),
-	mClientDisconnectTimeout(3.f)
+	mClientDisconnectTimeout(3.f),
+	mRoundTimer(60.f)
 {
 }
 
@@ -81,7 +82,7 @@ void NetworkManagerServer::HandlePacketFromNewClient(InputMemoryBitStream& inInp
 		//read the name
 		string name;
 		inInputStream.Read(name);
-		ClientProxyPtr newClientProxy = std::make_shared< ClientProxy >(inFromAddress, name, mNewPlayerId++);
+		ClientProxyPtr newClientProxy = std::make_shared< ClientProxy >(inFromAddress, name, mNewPlayerId++, mRoundTimer);
 		mAddressToClientMap[inFromAddress] = newClientProxy;
 		mPlayerIdToClientMap[newClientProxy->GetPlayerId()] = newClientProxy;
 
