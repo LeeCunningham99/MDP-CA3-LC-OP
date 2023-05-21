@@ -9,7 +9,7 @@ RenderManager::RenderManager()
 	m_city.setTexture(*TextureManager::sInstance->GetTexture("city"));
 	m_deathScreen.setTexture(*TextureManager::sInstance->GetTexture("deathScreen"));
 	m_winScreen.setTexture(*TextureManager::sInstance->GetTexture("winScreen"));
-	m_winScreen.setTexture(*TextureManager::sInstance->GetTexture("mainMenu"));
+	m_mainMenu.setTexture(*TextureManager::sInstance->GetTexture("mainMenu"));
 }
 
 void RenderManager::StaticInit()
@@ -154,7 +154,7 @@ void RenderManager::Render()
 			sf::Vector2f players = AlivePlayers();
 
 			if (players.x == 1.f && FindPlayerHealth() > 0 &&
-				ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 0)
+				ScoreBoardManager::sInstance->GetEntry(NetworkManagerClient::sInstance->GetPlayerId())->GetScore() > 10)
 			{
 				// Draw some you are the winner screen.
 				sf::Vector2f winner(view.getCenter().x - view.getSize().x / 2, view.getCenter().y - view.getSize().y / 2);
