@@ -111,6 +111,8 @@ void NetworkManagerClient::HandleStatePacket(InputMemoryBitStream& inInputStream
 		//HandleGameObjectState( inPacketBuffer );
 		HandleScoreBoardState(inInputStream);
 
+		HandleRoundTimer(inInputStream);
+
 		//tell the replication manager to handle the rest...
 		mReplicationManagerClient.Read(inInputStream);
 	}
@@ -181,7 +183,7 @@ void NetworkManagerClient::HandleScoreBoardState(InputMemoryBitStream& inInputSt
 
 void NetworkManagerClient::HandleRoundTimer(InputMemoryBitStream& inInputStream)
 {
-	//TO DO - add round timer
+	RoundTimerManager::sInstance->Read(inInputStream);
 }
 
 void NetworkManagerClient::DestroyGameObjectsInMap(const IntToGameObjectMap& inObjectsToDestroy)
