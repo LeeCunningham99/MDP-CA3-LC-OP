@@ -32,7 +32,7 @@ void RoboCatClient::HandleDying()
 	if (GetPlayerId() == NetworkManagerClient::sInstance->GetPlayerId())
 	{
 		HUD::sInstance->SetPlayerHealth(0);
-		CreateRandomMice(1);
+		//CreateRandomMice(1);
 	}
 }
 
